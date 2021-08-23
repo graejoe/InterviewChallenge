@@ -1,0 +1,13 @@
+C:\repos\InterviewChallenge\API\BenefitApi\bin\Debug\BenefitApi.deps.json
+C:\repos\InterviewChallenge\API\BenefitApi\bin\Debug\BenefitApi.runtimeconfig.json
+C:\repos\InterviewChallenge\API\BenefitApi\bin\Debug\BenefitApi.runtimeconfig.dev.json
+C:\repos\InterviewChallenge\API\BenefitApi\bin\Debug\appsettings.Development.json
+C:\repos\InterviewChallenge\API\BenefitApi\bin\Debug\appsettings.json
+C:\repos\InterviewChallenge\API\BenefitApi\bin\Debug\BenefitApi.exe
+C:\repos\InterviewChallenge\API\BenefitApi\bin\Debug\BenefitApi.dll
+C:\repos\InterviewChallenge\API\BenefitApi\bin\Debug\Flurl.dll
+C:\repos\InterviewChallenge\API\BenefitApi\bin\Debug\Newtonsoft.Json.dll
+C:\repos\InterviewChallenge\API\BenefitApi\bin\Debug\BenefitApi.pdb
+C:\repos\InterviewChallenge\API\BenefitApi\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
+C:\repos\InterviewChallenge\API\BenefitApi\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\repos\InterviewChallenge\API\BenefitApi\obj\Debug\docker-compose.dcproj.CopyComplete

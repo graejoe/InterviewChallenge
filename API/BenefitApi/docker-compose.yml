@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  benefitapi:
+    image: ${DOCKER_REGISTRY-}benefitapi
+    build:
+      context: .
+      dockerfile: BenefitApi\Dockerfile
