@@ -21,16 +21,15 @@ class Benefits extends React.Component {
 addItem(e){
     e.preventDefault();
     const { members } = this.state;
-    const newItem = { name: this.newItemName.value,
-                        type: this.newItemType.value };
-    const isOnTheList = members.filter(buyItem => {
-        return buyItem.name === newItem.name;
+    const newMember = { name: this.newMemberInput.value,
+                        type: this.newMemberTypeSelect.value };
+    const isOnTheList = members.filter(member => {
+        return member.name === newMember.name;
     })
-    const isAlreadyEmployee = newItem.type === "1" && members.filter(buyItem => {
-        return buyItem.type === newItem.type;
+    const isAlreadyEmployee = newMember.type === "1" && members.filter(member => {
+        return member.type === newMember.type;
     })
-    console.log(isAlreadyEmployee);
-   
+  
     if(isOnTheList.length > 0){
         this.setState({
             message: 'This item is already on the list.'
@@ -40,23 +39,22 @@ addItem(e){
             message: 'Only one employee can be added to the list.'
         })
     } else {
-        newItem !== '' && this.setState({
-            members: [...this.state.members, newItem],
+        newMember !== '' && this.setState({
+            members: [...this.state.members, newMember],
             message: ''
         })    
     }
     this.addForm.reset();
 }
-removeItem(item){
-    const newmembers = this.state.members.filter(buyItem => {
-        return buyItem !== item;
+removeItem(member){
+    const newmembers = this.state.members.filter(newMember => {
+        return newMember !== member;
     })
     this.setState({
         members: [...newmembers]
     })
 }
 calculatePaycheck(){
-    console.log(this.state.members);
     const requestOptions = { 
         method: 'POST', 
         headers: { 'Content-Type': 'application/json'},
@@ -68,6 +66,7 @@ calculatePaycheck(){
        .then(response => { this.setState({benefits: response}) })
        .catch(err => { console.log(err); 
        });
+
     const getOptions ={
         method:'GET',
         headers: { 'Content-Type': 'application/json'}
@@ -108,9 +107,9 @@ clearAll(){
                     <h1>Calculate Member Benefit Cost</h1>
                     <form ref={input => this.addForm = input } onSubmit={(e) => {this.addItem(e)}}>
                         <div>
-                            <label htmlFor="newItemInput">Add New Item</label>
-                            <input ref={input => this.newItemName = input } type="text" placeholder="Bread" id="newItemNameInput"/>
-                            <select ref={select => this.newItemType = select } type="text" placeholder="2" id="newItemTypeSelect">
+                            <label htmlFor="newMemberInput">Add Member</label>
+                            <input ref={input => this.newMemberInput = input } type="text" placeholder="Mark" id="newMemberInputInput"/>
+                            <select ref={select => this.newMemberTypeSelect = select } type="text" placeholder="2" id="newMemberTypeSelect">
                                 <option value="1">Employee</option>
                                 <option value="2">Dependant</option>
                             </select>
@@ -128,21 +127,21 @@ clearAll(){
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Item</th>
+                                <th>Member</th>
                                 <th>Type</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                            members.map(item => {
+                            members.map(member => {
                                 return (
-                                    <tr key={item.name}>
+                                    <tr key={member.name}>
                                         <th scope="row">1</th>
-                                        <td>{item.name}</td>
-                                        <td>{item.type}</td>
+                                        <td>{member.name}</td>
+                                        <td>{member.type}</td>
                                         <td className="text-right">
-                                            <button onClick={(e) => this.removeItem(item)} type="button" className="btn btn-danger">Remove</button>
+                                            <button onClick={(e) => this.removeItem(member)} type="button" className="btn btn-danger">Remove</button>
                                         </td>
                                     </tr>
                                     )
@@ -159,7 +158,6 @@ clearAll(){
                 <table className="table">
                         <thead>
                             <tr>
-                                
                                 <th>Cost</th>
                                 <th>Value</th>
                                 <th>Discounts</th>
@@ -178,11 +176,8 @@ clearAll(){
                         <tr>
                             <td>Total Costs:</td>
                             <td>${this.state.benefits.totalCost} / year</td>
-                            
                         </tr>
                     </table>
-
-
                     </p>}
                 </div>
                 <div>
@@ -191,7 +186,6 @@ clearAll(){
                     <table className="table">
                         <thead>
                             <tr>
-                                
                                 <th>Item</th>
                                 <th>Value</th>
                             </tr>

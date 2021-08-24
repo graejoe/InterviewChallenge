@@ -82,11 +82,11 @@ namespace BenefitApi
         {
             throw new NotImplementedException();
         }
-        private bool CheckForDeduction(string name)
+        internal bool CheckForDeduction(string name)
         {
             return (name.ToLower().StartsWith("a"));
         }
-        private async Task<benefit> GetBenefit()
+        internal async Task<benefit> GetBenefit()
         {
             var beneWorker = new BenefitWorker("");
             return await beneWorker.DoWork(string.Empty);

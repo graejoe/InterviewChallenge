@@ -22,10 +22,10 @@ namespace BenefitApi.Models
             
             foreach (string dependent in dependentsWithDiscounts)
             {
-                temp = String.IsNullOrEmpty(temp) ? temp + dependent : temp + $"& {dependent}";
+                temp = String.IsNullOrEmpty(temp) ? temp + dependent : temp + $" & {dependent}";
             }
             if (dependentsWithDiscounts.Count == 0) dependentDiscount = temp;
-            else dependentDiscount = $"Discount applied to {temp}.";
+            else dependentDiscount = $"10% discount applied to {temp}.";
         }
         public void CalculateTotalCost()
         {
